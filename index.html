@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AR NFT Project</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar-nft.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="trackingMethod: best;">
+        <a-assets>
+            <img id="picture" src="logo.png" />
+        </a-assets>
+        <a-nft
+            type="nft"
+            url="marker/logo"
+            smooth="true"
+            smoothCount="10"
+            smoothTolerance="0.01"
+            smoothThreshold="5"
+            emitevents="true">
+            <a-plane
+                src="#picture"
+                position="0 0 0"
+                rotation="-90 0 0"
+                height="1"
+                width="1">
+            </a-plane>
+        </a-nft>
+    </a-scene>
+  </body>
+</html>

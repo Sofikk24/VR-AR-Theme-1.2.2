@@ -21,13 +21,29 @@
             smoothThreshold="5"
             emitevents="true">
             <a-plane
+                id="image-plane"
                 src="#picture"
                 position="0 0 0"
                 rotation="-90 0 0"
                 height="1"
-                width="1">
+                width="1"
+                visible="false">
             </a-plane>
         </a-nft>
     </a-scene>
+    <script>
+        const marker = document.querySelector('a-nft');
+        const imagePlane = document.getElementById('image-plane');
+
+        marker.addEventListener('markerFound', () => {
+            console.log('Маркер найден');
+            imagePlane.setAttribute('visible', 'true');
+        });
+
+        marker.addEventListener('markerLost', () => {
+            console.log('Маркер потерян');
+            imagePlane.setAttribute('visible', 'false');
+      });
+      </script>
   </body>
 </html>
